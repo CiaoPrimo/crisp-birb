@@ -451,7 +451,7 @@ class Client(commands.AutoShardedBot):
     async def _set_custom_status(self):
         activity2 = discord.CustomActivity(name=f"{STATUS}")
         if STATUS:
-            await self.change_presence(activity=activity2)
+            await self.change_presence(status=discord.Status.dnd, activity=activity2)
         else:
             logger.warning(
                 "[⚠️] STATUS not defined in .env, bot will not set a custom status."
@@ -519,3 +519,4 @@ client = Client()
 
 if __name__ == "__main__":
     client.run(TOKEN)
+
